@@ -10,7 +10,8 @@ class CounterServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void {
+    public function boot(): void
+    {
         if ($this->app->runningInConsole()) {
             /** Publish assets */
             // $this->publishes([
@@ -27,7 +28,8 @@ class CounterServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
-    public function register(): void {
+    public function register(): void
+    {
         $this->registerConfig();
 
         $this->app->bind('counter', fn (Container $app) => new Counter());
@@ -36,7 +38,8 @@ class CounterServiceProvider extends ServiceProvider
     /**
      * Register the package config.
      */
-    protected function registerConfig(): void {
+    protected function registerConfig(): void
+    {
         $this->mergeConfigFrom(dirname(__DIR__).'/config/counters.php', 'counters');
     }
 }

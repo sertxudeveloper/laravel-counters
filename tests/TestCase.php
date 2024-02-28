@@ -13,7 +13,8 @@ class TestCase extends Orchestra
     /**
      * Define database migrations.
      */
-    protected function defineDatabaseMigrations(): void {
+    protected function defineDatabaseMigrations(): void
+    {
         $this->loadLaravelMigrations();
         $this->loadMigrationsFrom(dirname(__DIR__).'/database/migrations');
     }

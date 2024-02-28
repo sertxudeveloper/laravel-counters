@@ -97,5 +97,4 @@ class IncrementTest extends TestCase
             'value' => 2,
         ]);
     }
-
 }

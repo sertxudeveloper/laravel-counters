@@ -26,10 +26,6 @@ class Counter extends Model
 
     /**
      * Filter by key.
-     *
-     * @param $query
-     * @param string $key
-     * @return void
      */
     public function scopeKey($query, string $key): void
     {
@@ -38,10 +34,6 @@ class Counter extends Model
 
     /**
      * Filter by year.
-     *
-     * @param $query
-     * @param string $year
-     * @return void
      */
     public function scopeYear($query, string $year): void
     {
@@ -50,10 +42,6 @@ class Counter extends Model
 
     /**
      * Filter by series.
-     *
-     * @param $query
-     * @param string $series
-     * @return void
      */
     public function scopeSeries($query, string $series): void
     {

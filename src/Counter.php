@@ -9,48 +9,33 @@ class Counter
 {
     /**
      * The number of milliseconds to wait before re-attempting to acquire a lock while blocking.
-     *
-     * @var int
      */
     protected int $sleepMilliseconds = 250;
 
     /**
      * The number of tries to acquire a lock while blocking.
-     *
-     * @var int
      */
     protected int $tries = 10;
 
     /**
      * The key of the counter.
-     *
-     * @var string
      */
     protected string $key;
 
     /**
      * The year of the counter.
-     *
-     * @var string
      */
     protected string $year = '';
 
     /**
      * The series of the counter.
-     *
-     * @var string
      */
     protected string $series = '';
 
     /**
      * Create a new counter instance.
-     *
-     * @param string $key
-     * @param string $year
-     * @param string $series
-     * @return static
      */
-    static public function make(string $key, string $year = '', string $series = ''): static
+    public static function make(string $key, string $year = '', string $series = ''): static
     {
         $counter = new static();
 
@@ -63,9 +48,6 @@ class Counter
 
     /**
      * Increment the counter by the given amount.
-     *
-     * @param int $amount
-     * @return int
      */
     public function increment(int $amount = 1): int
     {
@@ -74,9 +56,6 @@ class Counter
 
     /**
      * Decrement the counter by the given amount.
-     *
-     * @param int $amount
-     * @return int
      */
     public function decrement(int $amount = 1): int
     {
@@ -86,10 +65,8 @@ class Counter
     /**
      * Decrement the counter by the given amount using atomic operations and return the new value.
      *
-     * @param string $method The method to use, either 'increment' or 'decrement'.
-     * @param int $amount The amount to increment or decrement.
-     *
-     * @return int
+     * @param  string  $method  The method to use, either 'increment' or 'decrement'.
+     * @param  int  $amount  The amount to increment or decrement.
      */
     protected function incrementOrDecrement(string $method, int $amount): int
     {
@@ -121,15 +98,13 @@ class Counter
             },
             sleepMilliseconds: $this->sleepMilliseconds,
             when: function (Throwable $e) {
-                return !($e instanceof MinimumValueException);
+                return ! ($e instanceof MinimumValueException);
             }
         );
     }
 
     /**
      * Get the next value of the counter.
-     *
-     * @return int
      */
     public function next(): int
     {
