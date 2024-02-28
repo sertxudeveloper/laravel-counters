@@ -1,8 +1,8 @@
 {
-    "name": "{package_vendor}/{package_name}",
-    "description": "{package_description}",
-    "keywords": [{package_keywords}],
-    "homepage": "https://github.com/{package_vendor}/{package_name}",
+    "name": "sertxudeveloper/laravel-counters",
+    "description": "Manage counters with year and series.",
+    "keywords": ["laravel", "counters", "series", "years", "invoice"],
+    "homepage": "https://github.com/sertxudeveloper/laravel-counters",
     "license": "MIT",
     "authors": [
         {
@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "{PackageVendor}\\{PackageName}\\": "src"
+            "SertxuDeveloper\\Counters\\": "src"
         }
     },
     "autoload-dev": {
@@ -40,7 +40,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "{PackageVendor}\\{PackageName}\\{PackageName}ServiceProvider"
+                "SertxuDeveloper\\Counters\\CounterServiceProvider"
             ]
         }
     },

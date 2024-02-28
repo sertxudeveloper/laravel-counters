@@ -1,11 +1,11 @@
 <?php
 
-namespace {PackageVendor}\{PackageName};
+namespace SertxuDeveloper\Counters;
 
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\ServiceProvider;
 
-class {PackageName}ServiceProvider extends ServiceProvider
+class CounterServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
@@ -14,13 +14,13 @@ class {PackageName}ServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             /** Publish assets */
             // $this->publishes([
-            //     dirname(__DIR__).'/resources/assets' => public_path('vendor/{package_name}'),
-            // ], '{package_name}-assets');
+            //     dirname(__DIR__).'/resources/assets' => public_path('vendor/counters'),
+            // ], 'counters-assets');
 
             /** Publish config */
             $this->publishes([
-                dirname(__DIR__).'/config/{package_name}.php' => $this->app->configPath('{package_name}.php'),
-            ], '{package_name}-config');
+                dirname(__DIR__).'/config/counters.php' => $this->app->configPath('counters.php'),
+            ], 'counters-config');
         }
     }
 
@@ -30,15 +30,13 @@ class {PackageName}ServiceProvider extends ServiceProvider
     public function register(): void {
         $this->registerConfig();
 
-        $this->app->singleton('{package_name}', function (Container $app) {
-            return new {PackageName};
-        });
+        $this->app->bind('counter', fn (Container $app) => new Counter());
     }
 
     /**
      * Register the package config.
      */
     protected function registerConfig(): void {
-        $this->mergeConfigFrom(dirname(__DIR__).'/config/{package_name}.php', '{package_name}');
+        $this->mergeConfigFrom(dirname(__DIR__).'/config/counters.php', 'counters');
     }
 }

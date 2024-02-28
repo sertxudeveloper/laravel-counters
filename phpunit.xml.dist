@@ -5,8 +5,13 @@
          colors="true"
 >
     <testsuites>
-        <testsuite name="{PackageName} Test Suite">
-            <directory>tests</directory>
+        <testsuite name="Package Tests">
+            <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="APP_KEY" value="base64:R9Wd+gHvl7xkvGxrJyEFagasIdgiLeHjnu6+J6PldMk="/>
+        <env name="DB_CONNECTION" value="sqlite"/>
+    </php>
 </phpunit>

@@ -1,0 +1,47 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+
+    /**
+     * Get the migration connection name.
+     *
+     * @return string|null
+     */
+    public function getConnection(): ?string
+    {
+        return config('counters.connection');
+    }
+
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up(): void
+    {
+        Schema::create('counters', function (Blueprint $table) {
+            $table->id();
+            $table->string('key', 50);
+            $table->string('year', 4)->default('');
+            $table->string('series', 10)->default('');
+            $table->unsignedBigInteger('value')->default(0);
+            $table->datetimes();
+
+            $table->unique(['key', 'year', 'series']);
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('counters');
+    }
+};

@@ -1,9 +1,9 @@
 
-<p align="center"><img src="/art/socialcard.png" alt="{PackageName}"></p>
+<p align="center"><img src="/art/socialcard.png" alt="Counters"></p>
 
 # Laravel Package Template
 
-![](https://img.shields.io/github/v/release/{package_vendor}/{package_name}) ![](https://github.com/{package_vendor}/{package_name}/actions/workflows/run-tests.yml/badge.svg) ![](https://img.shields.io/github/license/{package_vendor}/{package_name}) ![](https://img.shields.io/github/repo-size/{package_vendor}/{package_name}) ![](https://img.shields.io/packagist/dt/{package_vendor}/{package_name}) ![](https://img.shields.io/github/issues/{package_vendor}/{package_name}) ![](https://img.shields.io/packagist/php-v/{package_vendor}/{package_name}) [![Codecov Test coverage](https://img.shields.io/codecov/c/github/{package_vendor}/{package_name})](https://app.codecov.io/gh/{package_vendor}/{package_name})
+![](https://img.shields.io/github/v/release/sertxudeveloper/laravel-counters) ![](https://github.com/sertxudeveloper/laravel-counters/actions/workflows/run-tests.yml/badge.svg) ![](https://img.shields.io/github/license/sertxudeveloper/laravel-counters) ![](https://img.shields.io/github/repo-size/sertxudeveloper/laravel-counters) ![](https://img.shields.io/packagist/dt/sertxudeveloper/laravel-counters) ![](https://img.shields.io/github/issues/sertxudeveloper/laravel-counters) ![](https://img.shields.io/packagist/php-v/sertxudeveloper/laravel-counters) [![Codecov Test coverage](https://img.shields.io/codecov/c/github/sertxudeveloper/laravel-counters)](https://app.codecov.io/gh/sertxudeveloper/laravel-counters)
 
 This template is a starting point for building Laravel packages.
 
@@ -16,7 +16,7 @@ Enjoy it! 🚀
 You can install the package via composer:
 
 ```bash
-composer require {package_vendor}/{package_name}
+composer require sertxudeveloper/laravel-counters
 ```
 
 ## Usage
@@ -49,4 +49,4 @@ Please review [our security policy](../../security/policy) on how to report secu
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
 <br><br>
-<p align="center">Copyright © {current_year} Sertxu Developer</p>
+<p align="center">Copyright © 2024 Sertxu Developer</p>
