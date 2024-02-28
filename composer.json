@@ -1,0 +1,49 @@
+{
+    "name": "{package_vendor}/{package_name}",
+    "description": "{package_description}",
+    "keywords": [{package_keywords}],
+    "homepage": "https://github.com/{package_vendor}/{package_name}",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sergio Peris",
+            "email": "speris@grupoperis.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^10.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.13",
+        "orchestra/testbench": "^8.0",
+        "phpunit/phpunit": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "{PackageVendor}\\{PackageName}\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "{PackageVendor}\\{PackageName}\\{PackageName}ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
