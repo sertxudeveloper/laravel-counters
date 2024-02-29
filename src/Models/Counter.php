@@ -14,7 +14,6 @@ class Counter extends Model
     protected $fillable = [
         'key', 'year', 'series', 'value',
     ];
-
     /**
      * The attributes that should be cast.
      *
@@ -25,6 +24,16 @@ class Counter extends Model
     ];
 
     /**
+     * Get the current connection name for the model.
+     *
+     * @return string
+     */
+    public function getConnectionName(): string
+    {
+        return config('counters.connection');
+    }
+
+    /**
      * Filter by key.
      */
     public function scopeKey($query, string $key): void
@@ -33,18 +42,18 @@ class Counter extends Model
     }
 
     /**
-     * Filter by year.
-     */
-    public function scopeYear($query, string $year): void
-    {
-        $query->where('year', $year);
-    }
-
-    /**
      * Filter by series.
      */
     public function scopeSeries($query, string $series): void
     {
         $query->where('series', $series);
+    }
+
+    /**
+     * Filter by year.
+     */
+    public function scopeYear($query, string $year): void
+    {
+        $query->where('year', $year);
     }
 }

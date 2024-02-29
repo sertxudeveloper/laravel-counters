@@ -1,6 +1,6 @@
 <?php
 
-namespace SertxuDeveloper\Counters;
+namespace SertxuDeveloper\Counters\Exceptions;
 
 class MinimumValueException extends \Exception
 {
