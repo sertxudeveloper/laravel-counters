@@ -1,15 +1,17 @@
 
 <p align="center"><img src="/art/socialcard.png" alt="Counters"></p>
 
-# Laravel Package Template
+# Laravel Counters
 
 ![](https://img.shields.io/github/v/release/sertxudeveloper/laravel-counters) ![](https://github.com/sertxudeveloper/laravel-counters/actions/workflows/tests.yml/badge.svg) ![](https://img.shields.io/github/license/sertxudeveloper/laravel-counters) ![](https://img.shields.io/github/repo-size/sertxudeveloper/laravel-counters) ![](https://img.shields.io/packagist/dt/sertxudeveloper/laravel-counters) ![](https://img.shields.io/github/issues/sertxudeveloper/laravel-counters) ![](https://img.shields.io/packagist/php-v/sertxudeveloper/laravel-counters) [![Codecov Test coverage](https://img.shields.io/codecov/c/github/sertxudeveloper/laravel-counters)](https://app.codecov.io/gh/sertxudeveloper/laravel-counters)
 
-This template is a starting point for building Laravel packages.
+Manage counters in your Laravel application.
 
-Feel free to use it and modify it to your needs.
+This package allows you to manage counters in your Laravel application. You can create a counter and increment or decrement it as you need. You can also create a counter with a series or a year, so you can have different counters for different series or years.
 
-Enjoy it! 🚀
+## Requirements
+
+This package requires Laravel 10.0 or higher.
 
 ## Installation
 
