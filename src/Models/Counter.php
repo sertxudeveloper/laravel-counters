@@ -14,6 +14,7 @@ class Counter extends Model
     protected $fillable = [
         'key', 'year', 'series', 'value',
     ];
+
     /**
      * The attributes that should be cast.
      *
@@ -25,8 +26,6 @@ class Counter extends Model
 
     /**
      * Get the current connection name for the model.
-     *
-     * @return string
      */
     public function getConnectionName(): string
     {
