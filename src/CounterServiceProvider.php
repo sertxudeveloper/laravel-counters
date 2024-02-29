@@ -17,6 +17,9 @@ class CounterServiceProvider extends ServiceProvider
             $this->publishes([
                 dirname(__DIR__).'/config/counters.php' => $this->app->configPath('counters.php'),
             ], 'counters-config');
+
+            /** Load migrations */
+            $this->loadMigrationsFrom(dirname(__DIR__) . '/database/migrations');
         }
     }
 
