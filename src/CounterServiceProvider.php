@@ -19,7 +19,7 @@ class CounterServiceProvider extends ServiceProvider
             ], 'counters-config');
 
             /** Load migrations */
-            $this->loadMigrationsFrom(dirname(__DIR__) . '/database/migrations');
+            $this->loadMigrationsFrom(dirname(__DIR__).'/database/migrations');
         }
     }
 
