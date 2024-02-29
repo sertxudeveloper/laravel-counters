@@ -11,15 +11,6 @@ class TestCase extends Orchestra
     use RefreshDatabase;
 
     /**
-     * Define database migrations.
-     */
-    protected function defineDatabaseMigrations(): void
-    {
-        $this->loadLaravelMigrations();
-        $this->loadMigrationsFrom(dirname(__DIR__).'/database/migrations');
-    }
-
-    /**
      * Get package providers.
      *
      * @param  \Illuminate\Foundation\Application  $app
