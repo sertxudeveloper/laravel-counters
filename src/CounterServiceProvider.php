@@ -13,11 +13,6 @@ class CounterServiceProvider extends ServiceProvider
     public function boot(): void
     {
         if ($this->app->runningInConsole()) {
-            /** Publish assets */
-            // $this->publishes([
-            //     dirname(__DIR__).'/resources/assets' => public_path('vendor/counters'),
-            // ], 'counters-assets');
-
             /** Publish config */
             $this->publishes([
                 dirname(__DIR__).'/config/counters.php' => $this->app->configPath('counters.php'),

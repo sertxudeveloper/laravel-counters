@@ -26,7 +26,7 @@ composer require sertxudeveloper/laravel-counters
 This package provides a configuration file, in order to publish it, you should run the following command:
 
 ```bash
-php artisan vendor:publish --tag=menu-config
+php artisan vendor:publish --tag=counters-config
 ```
 
 In this configuration file you will be able to configure the database connection the package should use for its migrations and models.
