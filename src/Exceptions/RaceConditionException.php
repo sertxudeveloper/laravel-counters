@@ -2,6 +2,4 @@
 
 namespace SertxuDeveloper\Counters\Exceptions;
 
-class RaceConditionException extends \Exception
-{
-}
+class RaceConditionException extends \Exception {}
