@@ -30,7 +30,7 @@ class CounterServiceProvider extends ServiceProvider
     {
         $this->registerConfig();
 
-        $this->app->bind('counter', fn (Container $app) => new Counter());
+        $this->app->bind('counter', fn (Container $app) => new Counter);
     }
 
     /**

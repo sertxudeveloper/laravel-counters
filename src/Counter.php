@@ -39,7 +39,7 @@ class Counter
      */
     public static function make(string $key, string $year = '', string $series = ''): static
     {
-        $counter = new static();
+        $counter = new static;
 
         $counter->key = $key;
         $counter->year = $year;
