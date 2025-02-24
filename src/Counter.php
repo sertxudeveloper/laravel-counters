@@ -2,6 +2,7 @@
 
 namespace SertxuDeveloper\Counters;
 
+use Illuminate\Support\Facades\DB;
 use SertxuDeveloper\Counters\Exceptions\MinimumValueException;
 use SertxuDeveloper\Counters\Exceptions\RaceConditionException;
 use SertxuDeveloper\Counters\Models\Counter as CounterModel;
