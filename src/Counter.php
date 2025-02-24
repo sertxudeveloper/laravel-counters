@@ -78,7 +78,7 @@ class Counter
         return retry(
             times: $this->tries,
             callback: function (): int {
-                return DB::transaction(function () use ($amount) {
+                return DB::transaction(function () {
                     $counter = CounterModel::query()
                         ->lockForUpdate()
                         ->firstOrCreate([
