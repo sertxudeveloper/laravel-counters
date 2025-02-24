@@ -76,7 +76,7 @@ class Counter
 
         return retry(
             times: $this->tries,
-            callback: function () use ($amount): int {
+            callback: function (): int {
                 return DB::transaction(function () {
                     $counter = CounterModel::query()
                         ->lockForUpdate()
@@ -85,19 +85,19 @@ class Counter
                             'year' => $this->year,
                             'series' => $this->series,
                         ]);
-    
+
                     $value = $counter->value + $amount;
                     throw_if($value <= 0, MinimumValueException::class);
-    
+
                     $updated = CounterModel::query()
                         ->key($this->key)
                         ->year($this->year)
                         ->series($this->series)
                         ->where('value', $counter->value)
                         ->update(['value' => $value]);
-    
+
                     throw_if($updated === 0, RaceConditionException::class);
-    
+
                     return $value;
                 });
             },
