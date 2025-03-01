@@ -75,38 +75,26 @@ class Counter
     {
         $amount = ($method === 'increment' ? $amount : $amount * -1);
 
-        return retry(
-            times: $this->tries,
-            callback: function () use ($amount): int {
-                return DB::transaction(function () use ($amount) {
-                    $counter = CounterModel::query()
-                        ->lockForUpdate()
-                        ->firstOrCreate([
-                            'key' => $this->key,
-                            'year' => $this->year,
-                            'series' => $this->series,
-                        ]);
+        return DB::transaction(function () use ($amount) {
+            $counter = CounterModel::query()
+                ->lockForUpdate()
+                ->firstOrCreate([
+                    'key' => $this->key,
+                    'year' => $this->year,
+                    'series' => $this->series,
+                ]);
 
-                    $value = $counter->value + $amount;
-                    throw_if($value <= 0, MinimumValueException::class);
+            $value = $counter->value + $amount;
+            throw_if($value <= 0, MinimumValueException::class);
 
-                    $updated = CounterModel::query()
-                        ->key($this->key)
-                        ->year($this->year)
-                        ->series($this->series)
-                        ->where('value', $counter->value)
-                        ->update(['value' => $value]);
+            CounterModel::query()
+                ->key($this->key)
+                ->year($this->year)
+                ->series($this->series)
+                ->update(['value' => $value]);
 
-                    throw_if($updated === 0, RaceConditionException::class);
-
-                    return $value;
-                });
-            },
-            sleepMilliseconds: $this->sleepMilliseconds,
-            when: function (Throwable $e) {
-                return ! ($e instanceof MinimumValueException);
-            }
-        );
+            return $value;
+        });
     }
 
     /**
