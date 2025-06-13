@@ -22,7 +22,7 @@ return new class extends Migration
         Schema::create('counters', function (Blueprint $table) {
             $table->id();
             $table->string('key', 50);
-            $table->string('year', 4)->default('');
+            $table->year('year', 4)->nullable();
             $table->string('series', 10)->default('');
             $table->unsignedBigInteger('value')->default(0);
             $table->datetimes();

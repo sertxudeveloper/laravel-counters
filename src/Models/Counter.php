@@ -2,6 +2,7 @@
 
 namespace SertxuDeveloper\Counters\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Counter extends Model
@@ -35,7 +36,7 @@ class Counter extends Model
     /**
      * Filter by key.
      */
-    public function scopeKey($query, string $key): void
+    public function scopeKey(Builder $query, string $key): void
     {
         $query->where('key', $key);
     }
@@ -43,7 +44,7 @@ class Counter extends Model
     /**
      * Filter by series.
      */
-    public function scopeSeries($query, string $series): void
+    public function scopeSeries(Builder $query, string $series = ''): void
     {
         $query->where('series', $series);
     }
@@ -51,8 +52,8 @@ class Counter extends Model
     /**
      * Filter by year.
      */
-    public function scopeYear($query, string $year): void
+    public function scopeYear(Builder $query, ?int $year = null): void
     {
-        $query->where('year', $year);
+        $query->when(fn(Builder $query) => $query->where('year', $year));
     }
 }

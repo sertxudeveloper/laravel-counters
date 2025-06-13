@@ -26,7 +26,7 @@ class Counter
     /**
      * The year of the counter.
      */
-    protected string $year = '';
+    protected ?int $year = null;
 
     /**
      * The series of the counter.
@@ -36,7 +36,7 @@ class Counter
     /**
      * Create a new counter instance.
      */
-    public static function make(string $key, string $year = '', string $series = ''): static
+    public static function make(string $key, ?int $year = null, string $series = ''): static
     {
         $counter = new static;
 
