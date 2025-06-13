@@ -54,6 +54,6 @@ class Counter extends Model
      */
     public function scopeYear(Builder $query, ?int $year = null): void
     {
-        $query->when(fn(Builder $query) => $query->where('year', $year));
+        $query->when(fn (Builder $query) => $query->where('year', $year));
     }
 }
