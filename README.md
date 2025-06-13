@@ -23,16 +23,7 @@ composer require sertxudeveloper/laravel-counters
 
 ## Usage
 
-This package provides a configuration file, in order to publish it, you should run the following command:
-
-```bash
-php artisan vendor:publish --tag=counters-config
-```
-
-In this configuration file you will be able to configure the database connection the package should use for its migrations and models.
-By default, will use the default database connection defined in your Laravel project.
-
-Next, you should run the migrations:
+First, you should run the migrations:
 
 ```bash
 php artisan migrate
@@ -72,12 +63,12 @@ $invoice->number = $counter->next(); // 1
 ```php
 use SertxuDeveloper\Counters\Counter;
 
-$counter = Counter::make('INVOICES', year: '2023');
+$counter = Counter::make('INVOICES', year: 2023);
 
 $invoice->number = $counter->next(); // 1
 $invoice->number = $counter->next(); // 2
 
-$counter = Counter::make('INVOICES', year: '2024');
+$counter = Counter::make('INVOICES', year: 2024);
 
 $invoice->number = $counter->next(); // 1
 ```
@@ -87,16 +78,16 @@ $invoice->number = $counter->next(); // 1
 ```php
 use SertxuDeveloper\Counters\Counter;
 
-$counter = Counter::make('INVOICES', year: '2023', series: 'N');
+$counter = Counter::make('INVOICES', year: 2023, series: 'N');
 
 $invoice->number = $counter->next(); // 1
 $invoice->number = $counter->next(); // 2
 
-$counter = Counter::make('INVOICES', year: '2023', series: 'R');
+$counter = Counter::make('INVOICES', year: 2023, series: 'R');
 
 $invoice->number = $counter->next(); // 1
 
-$counter = Counter::make('INVOICES', year: '2024', series: 'N');
+$counter = Counter::make('INVOICES', year: 2024, series: 'N');
 
 $invoice->number = $counter->next(); // 1
 ```

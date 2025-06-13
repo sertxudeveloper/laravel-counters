@@ -36,7 +36,7 @@ class DecrementTest extends TestCase
     {
         $this->assertDatabaseCount('counters', 0);
 
-        $counter = Counter::make('test', '', 'A');
+        $counter = Counter::make('test', series: 'A');
         $counter->increment();
         $counter->increment();
         $counter->increment();
@@ -49,7 +49,7 @@ class DecrementTest extends TestCase
     {
         $this->assertDatabaseCount('counters', 0);
 
-        $counter = Counter::make('test', '2021', 'A');
+        $counter = Counter::make('test', 2021, 'A');
         $counter->increment();
         $counter->increment();
         $counter->increment();

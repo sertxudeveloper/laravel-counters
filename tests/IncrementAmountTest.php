@@ -14,7 +14,7 @@ class IncrementAmountTest extends TestCase
 
         $this->assertDatabaseHas('counters', [
             'key' => 'test',
-            'year' => '',
+            'year' => null,
             'series' => '',
             'value' => 5,
         ]);
@@ -23,7 +23,7 @@ class IncrementAmountTest extends TestCase
 
         $this->assertDatabaseHas('counters', [
             'key' => 'test',
-            'year' => '',
+            'year' => null,
             'series' => '',
             'value' => 8,
         ]);
@@ -33,7 +33,7 @@ class IncrementAmountTest extends TestCase
     {
         $this->assertDatabaseCount('counters', 0);
 
-        Counter::make('test', '2021')->increment(5);
+        Counter::make('test', 2021)->increment(5);
 
         $this->assertDatabaseHas('counters', [
             'key' => 'test',
@@ -42,11 +42,11 @@ class IncrementAmountTest extends TestCase
             'value' => 5,
         ]);
 
-        Counter::make('test', '2021')->increment(3);
+        Counter::make('test', 2021)->increment(3);
 
         $this->assertDatabaseHas('counters', [
             'key' => 'test',
-            'year' => '2021',
+            'year' => 2021,
             'series' => '',
             'value' => 8,
         ]);
@@ -56,20 +56,20 @@ class IncrementAmountTest extends TestCase
     {
         $this->assertDatabaseCount('counters', 0);
 
-        Counter::make('test', '', 'A')->increment(5);
+        Counter::make('test', series: 'A')->increment(5);
 
         $this->assertDatabaseHas('counters', [
             'key' => 'test',
-            'year' => '',
+            'year' => null,
             'series' => 'A',
             'value' => 5,
         ]);
 
-        Counter::make('test', '', 'A')->increment(3);
+        Counter::make('test', series: 'A')->increment(3);
 
         $this->assertDatabaseHas('counters', [
             'key' => 'test',
-            'year' => '',
+            'year' => null,
             'series' => 'A',
             'value' => 8,
         ]);
@@ -79,20 +79,20 @@ class IncrementAmountTest extends TestCase
     {
         $this->assertDatabaseCount('counters', 0);
 
-        Counter::make('test', '2021', 'A')->increment(5);
+        Counter::make('test', 2021, 'A')->increment(5);
 
         $this->assertDatabaseHas('counters', [
             'key' => 'test',
-            'year' => '2021',
+            'year' => 2021,
             'series' => 'A',
             'value' => 5,
         ]);
 
-        Counter::make('test', '2021', 'A')->increment(3);
+        Counter::make('test', 2021, 'A')->increment(3);
 
         $this->assertDatabaseHas('counters', [
             'key' => 'test',
-            'year' => '2021',
+            'year' => 2021,
             'series' => 'A',
             'value' => 8,
         ]);

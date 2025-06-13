@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SertxuDeveloper\Counters\Models;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -24,14 +26,6 @@ class Counter extends Model
     protected $casts = [
         'value' => 'integer',
     ];
-
-    /**
-     * Get the current connection name for the model.
-     */
-    public function getConnectionName(): string
-    {
-        return config('counters.connection');
-    }
 
     /**
      * Filter by key.

@@ -16,7 +16,7 @@ class CreateCounterTest extends TestCase
 
         $this->assertDatabaseHas('counters', [
             'key' => 'test',
-            'year' => '',
+            'year' => null,
             'series' => '',
         ]);
     }
@@ -25,13 +25,13 @@ class CreateCounterTest extends TestCase
     {
         $this->assertDatabaseCount('counters', 0);
 
-        Counter::make('test', '2021')->increment();
+        Counter::make('test', 2021)->increment();
 
         $this->assertDatabaseCount('counters', 1);
 
         $this->assertDatabaseHas('counters', [
             'key' => 'test',
-            'year' => '2021',
+            'year' => 2021,
             'series' => '',
         ]);
     }
@@ -40,13 +40,13 @@ class CreateCounterTest extends TestCase
     {
         $this->assertDatabaseCount('counters', 0);
 
-        Counter::make('test', '', 'A')->increment();
+        Counter::make('test', series: 'A')->increment();
 
         $this->assertDatabaseCount('counters', 1);
 
         $this->assertDatabaseHas('counters', [
             'key' => 'test',
-            'year' => '',
+            'year' => null,
             'series' => 'A',
         ]);
     }
@@ -55,13 +55,13 @@ class CreateCounterTest extends TestCase
     {
         $this->assertDatabaseCount('counters', 0);
 
-        Counter::make('test', '2021', 'A')->increment();
+        Counter::make('test', 2021, 'A')->increment();
 
         $this->assertDatabaseCount('counters', 1);
 
         $this->assertDatabaseHas('counters', [
             'key' => 'test',
-            'year' => '2021',
+            'year' => 2021,
             'series' => 'A',
         ]);
     }

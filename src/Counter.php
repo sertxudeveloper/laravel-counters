@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SertxuDeveloper\Counters;
 
 use Illuminate\Support\Facades\DB;
@@ -8,11 +10,6 @@ use SertxuDeveloper\Counters\Models\Counter as CounterModel;
 
 class Counter
 {
-    /**
-     * The number of milliseconds to wait before re-attempting to acquire a lock while blocking.
-     */
-    protected int $sleepMilliseconds = 250;
-
     /**
      * The number of tries to acquire a lock while blocking.
      */
