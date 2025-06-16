@@ -61,6 +61,19 @@ class Counter
     }
 
     /**
+     * Set the counter to the given amount.
+     */
+    public function set(int $value): void
+    {
+        CounterModel::query()
+            ->updateOrCreate([
+                'key' => $this->key,
+                'year' => $this->year,
+                'series' => $this->series,
+            ], ['value' => $value]);
+    }
+
+    /**
      * Decrement the counter by the given amount using atomic operations and return the new value.
      *
      * @param  string  $method  The method to use, either 'increment' or 'decrement'.
