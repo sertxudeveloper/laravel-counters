@@ -23,10 +23,6 @@ jobs:
         laravel: ['11', '12', '13']
         exclude:
           - laravel: '13'
-            php: 8.1
-          - laravel: '12'
-            php: 8.1
-          - laravel: '12'
             php: 8.2
 
     steps:
@@ -38,7 +34,7 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           coverage: xdebug
-          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, bcmath, soap, intl, gd, exif, iconv, fileinfo
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, bcmath, soap, intl, gd, exif, iconv, fileinfo, pdo_sqlite
 
       - name: Cache composer
         uses: actions/cache@v5
