@@ -24,12 +24,12 @@
     },
     "autoload": {
         "psr-4": {
-            "SertxuDeveloper\\Counters\\": "src"
+            "SertxuDeveloper\\Counters\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests"
+            "SertxuDeveloper\\Counters\\Tests\\": "tests/"
         }
     },
     "scripts": {
