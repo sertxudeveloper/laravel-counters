@@ -13,17 +13,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [8.1, 8.2, 8.3, 8.4]
-        laravel: [10, 11, 12]
+        php: [8.2, 8.3, 8.4, 8.5]
+        laravel: [12, 13]
         coverage-driver: [pcov]
         stability: [prefer-lowest, prefer-stable]
         exclude:
-          - laravel: '11'
-            php: 8.1
-          - laravel: '12'
-            php: 8.1
           - laravel: '12'
             php: 8.2
+          - laravel: '13'
+            php: 8.1
+          - laravel: '13'
+            php: 8.2
+          - laravel: '13'
+            php: 8.3
 
     name: Ubuntu - P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }}
 
@@ -62,17 +64,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [8.1, 8.2, 8.3, 8.4]
-        laravel: [10, 11, 12]
+        php: [8.2, 8.3, 8.4, 8.5]
+        laravel: [12, 13]
         coverage-driver: [pcov]
         stability: [prefer-lowest, prefer-stable]
         exclude:
-          - laravel: '11'
-            php: 8.1
-          - laravel: '12'
-            php: 8.1
           - laravel: '12'
             php: 8.2
+          - laravel: '13'
+            php: 8.1
+          - laravel: '13'
+            php: 8.2
+          - laravel: '13'
+            php: 8.3
 
     name: Windows - P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }}
 
