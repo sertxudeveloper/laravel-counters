@@ -57,7 +57,7 @@ jobs:
         run: vendor/bin/pest --coverage-clover=coverage.xml
 
       - name: Send code coverage report to Codecov.io
-        uses: codecov/codecov-action@v6.0.0
+        uses: codecov/codecov-action@v6.0.1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: sertxudeveloper/laravel-counters
